@@ -124,6 +124,8 @@ slicedens<-function(x,y,z=NULL,slices=50,lboost=1,gboost=1,
 n <- 500000; y<-rnorm(n); x<-3*rnorm(n)+y^2
 plot(x,y, cex =.2, col=rgb(0,0,0,.1))
 
+# Figure 1
+
 par(mar=c(.1,.1,.1,.1))
 par(mfrow = c(2,2))
 
@@ -134,6 +136,8 @@ persp(den3d, box=FALSE, expand=.6)
 persp(den3d, box=FALSE, expand=.6, theta=-90)
 persp(den3d, box=FALSE, expand=.6, theta=180)
 persp(den3d, box=FALSE, expand=.6, theta=90)
+
+# Figure 2
 
 # fcol can either be a color or rgb vector
 fcol <- c(.6,0,0,.35)
@@ -155,6 +159,8 @@ slicedens(-y,-x,
           fcol=fcol, bcol='white', lcol=lcol,
           gboost=1.6)
 
+# Figure 3
+
 # Proportionally distanced cuts
 slicedens(x,y, cutprop=T,
           fcol=fcol, bcol='white', lcol=lcol,
@@ -172,6 +178,8 @@ slicedens(-y,-x, cutprop=T,
           fcol=fcol, bcol='white', lcol=lcol,
           gboost=1.6)
 
+# Figure 4
+
 # Transparency weighted cuts
 slicedens(x,y, transprop=T,
           fcol=fcol, bcol='white', lcol=lcol,
@@ -188,6 +196,8 @@ slicedens(-x,-y, transprop=T,
 slicedens(-y,-x, transprop=T,
           fcol=fcol, bcol='white', lcol=lcol,
           gboost=1.6)
+
+# Figure 5
 
 # Height weighted cuts
 fcol <- c(.6,0,0,.2)
@@ -208,6 +218,8 @@ slicedens(-x,-y, heightprop=T,
 slicedens(-y,-x, heightprop=T,
           fcol=fcol, bcol='white', lcol=lcol,
           gboost=4)
+
+# Figure 6
 
 # Three variables
 z <- -(abs(x)+abs(y))+rnorm(n)*3
@@ -231,6 +243,8 @@ slicedens(z,x,y,
           fcol=fcol, bcol='white', lcol=lcol,
           gboost=1)
 
+# Figure 8
+
 # Example:
 fcol <- rgb(0,.5,.5,.5)
 n <- 500000; y<-rnorm(n); x<-rnorm(n)
@@ -252,6 +266,8 @@ n <- 500000; y<-x<-rnorm(n)
 slicedens(x,y,
           fcol=fcol, bcol='white', lcol=rgb(0,0,.75,.5),
           gboost=15)
+          
+# Figure 7
 
 # I downloaded the IPUMS data from https://www.ipums.org/
 # I selected age wage income and person weight. 
@@ -286,3 +302,5 @@ slicedens(ipums$age, log(ipums$wginc),
 slicedens(log(ipums$wginc), ipums$age, heightprop=TRUE,
           fcol=fcol, bcol='black', lcol=lcol,
           gboost=2)
+
+# Figure 9
